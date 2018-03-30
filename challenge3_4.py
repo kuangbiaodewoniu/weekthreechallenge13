@@ -44,8 +44,12 @@ def main():
             else:
                 url_result[log[2]] = 1
     try:
-        ip_dict = max(ip_result.items(), key=lambda x: x[1])
-        url_dict = max(url_result.items(), key=lambda x: x[1])
+        ip_dict = {}
+        url_dict = {}
+        ip_list = max(ip_result.items(), key=lambda x: x[1])
+        url_list = max(url_result.items(), key=lambda x: x[1])
+        ip_dict[ip_list[0]] = ip_list[1]
+        url_dict[url_list[0]] = url_list[1]
     except ValueError as e:
         print(e)
         exit(-1)
